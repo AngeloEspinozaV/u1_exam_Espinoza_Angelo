@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.859130611892874 -0.5071000774565749 -0.06887745024397803 0.3135988274066482
-  position -0.1337655674790289 1.4736269247571303 1.030759944598097
+  orientation -0.9682809390010058 0.24178423075940228 0.0630270491409412 0.5259581663424805
+  position 0.7336856861014275 2.4878362658072373 2.6349545166702417
 }
 TexturedBackground {
 }
@@ -102,6 +102,53 @@ Solid {
               geometry DEF COIL Cylinder {
                 height 0.2
                 radius 0.05
+              }
+            }
+          ]
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 1 0
+            anchor -0.1 1.27 0
+            minStop 0.785
+            maxStop -0.785
+          }
+          endPoint Solid {
+            translation -0.3 1.27 0
+            rotation 0 0 1 1.57
+            children [
+              Shape {
+                appearance USE TOP_COLOR
+                geometry Cylinder {
+                  height 0.4
+                  radius 0.01
+                }
+              }
+              Transform {
+                translation 0 0.15 0
+                children [
+                  Shape {
+                    appearance USE TOP_COLOR
+                    geometry Box {
+                      size 0.05 0.1 0.1
+                    }
+                  }
+                ]
+              }
+            ]
+            physics Physics {
+            }
+          }
+        }
+        Transform {
+          translation 0.1 1.27 0
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              appearance USE TOP_COLOR
+              geometry Cylinder {
+                height 0.01
+                radius 0.07
               }
             }
           ]
