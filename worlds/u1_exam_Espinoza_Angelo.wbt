@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.6126057460025549 0.7815188568601545 0.11807826360787295 0.4187578360982717
-  position 1.4796801770707617 1.7263335010954635 4.3833237429904495
+  orientation -0.859130611892874 -0.5071000774565749 -0.06887745024397803 0.3135988274066482
+  position -0.1337655674790289 1.4736269247571303 1.030759944598097
 }
 TexturedBackground {
 }
@@ -13,62 +13,98 @@ Floor {
 }
 Solid {
   children [
-    Transform {
-      translation 0 1 0
-      rotation 0 0.7071067811865475 0.7071067811865475 0
+    DEF GR_BASE Group {
       children [
-        Shape {
-          appearance DEF BASE_COLOR PBRAppearance {
-            baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
-            roughness 1
-            metalness 0
-          }
-          geometry DEF SIZE_BASE Box {
-            size 0.5 0.05 0.5
-          }
+        Transform {
+          translation 0 1 0
+          rotation 0 0.7071067811865475 0.7071067811865475 0
+          children [
+            Shape {
+              appearance DEF BASE_COLOR PBRAppearance {
+                baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
+                roughness 1
+                metalness 0
+              }
+              geometry DEF SIZE_BASE Box {
+                size 0.5 0.05 0.5
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -0.25 0.4961208719054811 -0.20612087190548137
+          rotation 0.3333333333333333 -0.6666666666666666 -0.6666666666666666 0.5
+          children [
+            Shape {
+              appearance USE BASE_COLOR
+              geometry DEF STICKS_SIZE Cylinder {
+                height 1.05
+                radius 0.03
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -0.25 0.4961208719054811 0.206121
+          rotation -0.33333288888900003 0.6666667777776667 -0.6666667777776667 0.5
+          children [
+            Shape {
+              appearance USE BASE_COLOR
+              geometry USE STICKS_SIZE
+            }
+          ]
+        }
+        Transform {
+          translation 0.25 0.4961208719054811 0.206121
+          rotation -0.33333288888900003 -0.6666667777776667 0.6666667777776667 0.5
+          children [
+            Shape {
+              appearance USE BASE_COLOR
+              geometry USE STICKS_SIZE
+            }
+          ]
+        }
+        Transform {
+          translation 0.25 0.4961208719054811 -0.20612087190548137
+          rotation 0.33333288888900003 0.6666667777776667 0.6666667777776667 0.5
+          children [
+            Shape {
+              appearance USE BASE_COLOR
+              geometry USE STICKS_SIZE
+            }
+          ]
         }
       ]
     }
-    Transform {
-      translation 0.25 0.4961208719054811 -0.20612087190548137
-      rotation 0.3333333333333333 0.6666666666666666 0.6666666666666666 0.5
+    DEF GR_TOP Group {
       children [
-        Shape {
-          appearance USE BASE_COLOR
-          geometry DEF STICKS_BASE_SIZE Cylinder {
-            height 1.05
-            radius 0.03
-          }
+        Transform {
+          translation 0 1.12 0
+          children [
+            Shape {
+              appearance DEF TOP_COLOR PBRAppearance {
+                baseColor 0.5411764705882353 0.8862745098039215 0.20392156862745098
+                roughness 1
+                metalness 0
+              }
+              geometry Box {
+                size 0.05 0.2 0.1
+              }
+            }
+          ]
         }
-      ]
-    }
-    Transform {
-      translation -0.25 0.4961208719054811 -0.20612087190548137
-      rotation 0.3333333333333333 -0.6666666666666666 -0.6666666666666666 0.5
-      children [
-        Shape {
-          appearance USE BASE_COLOR
-          geometry USE STICKS_BASE_SIZE
-        }
-      ]
-    }
-    Transform {
-      translation -0.25 0.4961208719054811 0.206121
-      rotation -0.33333288888900003 0.6666667777776667 -0.6666667777776667 0.5
-      children [
-        Shape {
-          appearance USE BASE_COLOR
-          geometry USE STICKS_BASE_SIZE
-        }
-      ]
-    }
-    Transform {
-      translation 0.25 0.4961208719054811 0.206121
-      rotation -0.33333288888900003 -0.6666667777776667 0.6666667777776667 0.5
-      children [
-        Shape {
-          appearance USE BASE_COLOR
-          geometry USE STICKS_BASE_SIZE
+        Transform {
+          translation 0 1.27 0
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              appearance USE TOP_COLOR
+              geometry DEF COIL Cylinder {
+                height 0.2
+                radius 0.05
+              }
+            }
+          ]
         }
       ]
     }
