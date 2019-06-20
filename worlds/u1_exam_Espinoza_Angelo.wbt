@@ -2,12 +2,75 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.6931032800836722 0.6931032800836722 0.1980295085953349 0.75
-  position 1.2 1.6 2.3
+  orientation -0.6126057460025549 0.7815188568601545 0.11807826360787295 0.4187578360982717
+  position 1.4796801770707617 1.7263335010954635 4.3833237429904495
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 Floor {
+}
+Solid {
+  children [
+    Transform {
+      translation 0 1 0
+      rotation 0 0.7071067811865475 0.7071067811865475 0
+      children [
+        Shape {
+          appearance DEF BASE_COLOR PBRAppearance {
+            baseColor 0.9372549019607843 0.1607843137254902 0.1607843137254902
+            roughness 1
+            metalness 0
+          }
+          geometry DEF SIZE_BASE Box {
+            size 0.5 0.05 0.5
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 0.25 0.4961208719054811 -0.20612087190548137
+      rotation 0.3333333333333333 0.6666666666666666 0.6666666666666666 0.5
+      children [
+        Shape {
+          appearance USE BASE_COLOR
+          geometry DEF STICKS_BASE_SIZE Cylinder {
+            height 1.05
+            radius 0.03
+          }
+        }
+      ]
+    }
+    Transform {
+      translation -0.25 0.4961208719054811 -0.20612087190548137
+      rotation 0.3333333333333333 -0.6666666666666666 -0.6666666666666666 0.5
+      children [
+        Shape {
+          appearance USE BASE_COLOR
+          geometry USE STICKS_BASE_SIZE
+        }
+      ]
+    }
+    Transform {
+      translation -0.25 0.4961208719054811 0.206121
+      rotation -0.33333288888900003 0.6666667777776667 -0.6666667777776667 0.5
+      children [
+        Shape {
+          appearance USE BASE_COLOR
+          geometry USE STICKS_BASE_SIZE
+        }
+      ]
+    }
+    Transform {
+      translation 0.25 0.4961208719054811 0.206121
+      rotation -0.33333288888900003 -0.6666667777776667 0.6666667777776667 0.5
+      children [
+        Shape {
+          appearance USE BASE_COLOR
+          geometry USE STICKS_BASE_SIZE
+        }
+      ]
+    }
+  ]
 }
